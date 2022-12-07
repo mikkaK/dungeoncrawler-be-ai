@@ -10,8 +10,6 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: dc
       MONGO_INITDB_ROOT_PASSWORD: gigaMongo
-    volumes:
-      - ./volume/:/data/db
     command: ["--bind_ip", "0.0.0.0"]
 
   mongo-express:
