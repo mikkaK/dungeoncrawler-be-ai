@@ -2,6 +2,7 @@ package ch.noseryoung.dungeoncrawlerai.domain;
 
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,13 +15,14 @@ import org.springframework.web.bind.annotation.*;
 public class BalanceController {
 
     private final BalanceService balanceService;
-
+    @Autowired
     public BalanceController(BalanceService balanceService){
         this.balanceService = balanceService;
     }
     @Transactional
     @PostMapping("/contribute")
     public ResponseEntity<Void> contributeData(@RequestBody BalanceEntity entity){
+        log.info("Starting contribution");
         balanceService.contributeData(entity);
         return new ResponseEntity<>(HttpStatus.OK);
     }

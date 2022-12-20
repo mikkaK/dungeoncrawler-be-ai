@@ -35,8 +35,28 @@ public class BalanceEntity {
     @Field
     private boolean playerIsDead;
 
-    public BalanceEntity(String id, double playersAttackDamage, double playersDefense, int stage, String roomId, String enemyId, double leftoverEnemyHealth, double leftoverPlayerHealth, boolean playerIsDead) {
-        this.id = id;
+    @Field
+    private int itemListLength;
+
+    @Field
+    private double enemyDamage;
+
+    @Field
+    private double enemyResistance;
+    @Field
+    private int defenseItemAmount;
+    @Field
+    private int attackItemAmount;
+    @Field
+    private boolean enemyHasDefenseMultiplier;
+    @Field
+    private double enemyDefenseMultiplier;
+    @Field
+    private boolean enemyHasBonusDefense;
+    @Field
+    private double enemyBonusDefense;
+
+    public BalanceEntity(double playersAttackDamage, double playersDefense, int stage, String roomId, String enemyId, double leftoverEnemyHealth, double leftoverPlayerHealth, boolean playerIsDead, int itemListLength, double enemyDamage, double enemyResistance, int defenseItemAmount, int attackItemAmount, boolean enemyHasDefenseMultiplier, double enemyDefenseMultiplier, boolean enemyHasBonusDefense, double enemyBonusDefense) {
         this.playersAttackDamage = playersAttackDamage;
         this.playersDefense = playersDefense;
         this.stage = stage;
@@ -45,8 +65,16 @@ public class BalanceEntity {
         this.leftoverEnemyHealth = leftoverEnemyHealth;
         this.leftoverPlayerHealth = leftoverPlayerHealth;
         this.playerIsDead = playerIsDead;
+        this.itemListLength = itemListLength;
+        this.enemyDamage = enemyDamage;
+        this.enemyResistance = enemyResistance;
+        this.defenseItemAmount = defenseItemAmount;
+        this.attackItemAmount = attackItemAmount;
+        this.enemyHasDefenseMultiplier = enemyHasDefenseMultiplier;
+        this.enemyDefenseMultiplier = enemyDefenseMultiplier;
+        this.enemyHasBonusDefense = enemyHasBonusDefense;
+        this.enemyBonusDefense = enemyBonusDefense;
     }
-
 
     public String getId() {
         return id;
