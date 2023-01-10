@@ -31,14 +31,14 @@ Es mussten auch einige Formeln erstellt werden, da die Statistiken des Spielers 
 
 ![Notiz 1](./project-ressources/MicrosoftTeams-image%20(37).png)
 ![Notiz 2](./project-ressources/MicrosoftTeams-image%20(31).png)
-![Notiz 3](./project-ressources/MicrosoftTeams-image%20(32).png)
 ![Notiz 4](./project-ressources/MicrosoftTeams-image%20(33).png)
-![Notiz 5](./project-ressources/MicrosoftTeams-image%20(34).png)
-![Notiz 7](./project-ressources/MicrosoftTeams-image%20(35).png)
 ![Notiz 8](./project-ressources/MicrosoftTeams-image%20(36).png)
-![Notiz 9](./project-ressources/MicrosoftTeams-image%20(38).png)
-![Notiz 10](./project-ressources/MicrosoftTeams-image%20(39).png)
+
+
 
 ### Diagramme
+#### Klassendiagramm
 ![Klassendiagramm](./project-ressources/class-diagramm.png)
+***
+#### Sequenzdiagramm
 ![Sequenzdiagramm](./project-ressources/sequenz-diagramm.png)
