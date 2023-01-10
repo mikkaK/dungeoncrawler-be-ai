@@ -1,13 +1,21 @@
 # Dungeoncrawler Generation-based ML
 
 ## Inhaltsverzeichniss
+- Glossar
 - Beschreibung
 - Vorbereitung
 - Implementation
+- Notizen
 - Diagramme
 - Reflexion
-- Glossar
 
+### Glossar
+
+|Wort|Beschreibung   |
+|---|---|
+|Balancing|Eigenschafte eines Gegenstandes oder eines Gegners werden angepasst. Z.B. wird die maximale Gesundheit oder der Schaden welcher angerichtet wird, angepasst|
+|Nerf|Ein Nerf bei einem Gegenstand oder eine, Gegner führt dazu, dass dieser schlechter wird. Z.B wird beim gegner das maximale Leben verringert, oder dass ein Gegenstand weniger nützlich wird|
+|Buff|Bei einem Buff passiert das gegenteil von einem Nerf. Der Gegner oder Gegenstand wird besser. Z.B. wird bei einem Gegenstand die Haltbarkeit, Schaden oder Resistenz erhöht.|
 ### Beschreibung
 
 Als abschlussprojekt im Basislehrjahr der Noser Young haben wir als Gruppe einen Dungeoncrawler gemacht. Dabei wurde Anfangs reines TypeScript und React benutzt. Über mehrer Entwicklungsstadien und Module entwickelte sich das Spiel immer weiter fort. Im Aktuellen Modul 320 setzten wir (Mikka Kummer, Cedric Zollinger) uns das Ziel, dem ganzen Spiel ein Balancing zu geben. Anfangs wurde lediglich Gegner und Gegegstände nach besten Gefühl eingefügt, mit stark variierenden Statistiken. In unserem Projekt soll dies nun geändert werden. Dazu entschieden wir uns, ein neues Thema anzuschauen, nämlich AI / ML. Nach einlesen in das Thema, fiel der entschied, das wir unser balancing mithilfe einer Generation-base ML Technik machen. Was wir damit erreichen wollen ist, das nach dem Tot oder einem Kill eines Spielers, die Daten des Kampfes analysiert werden. Aus den gesammelten Daten wird dann über einen Algorithmus entschieden, ober der Gegner einen Nerf oder Buff erhält
@@ -19,14 +27,18 @@ Es mussten auch einige Formeln erstellt werden, da die Statistiken des Spielers 
 
 ### Implementation
 
+### Notizen
+
+![Notiz 1](./project-ressources/MicrosoftTeams-image%20(37).png)
+![Notiz 2](./project-ressources/MicrosoftTeams-image%20(31).png)
+![Notiz 3](./project-ressources/MicrosoftTeams-image%20(32).png)
+![Notiz 4](./project-ressources/MicrosoftTeams-image%20(33).png)
+![Notiz 5](./project-ressources/MicrosoftTeams-image%20(34).png)
+![Notiz 7](./project-ressources/MicrosoftTeams-image%20(35).png)
+![Notiz 8](./project-ressources/MicrosoftTeams-image%20(36).png)
+![Notiz 9](./project-ressources/MicrosoftTeams-image%20(38).png)
+![Notiz 10](./project-ressources/MicrosoftTeams-image%20(39).png)
+
 ### Diagramme
 ![Klassendiagramm](./project-ressources/class-diagramm.png)
 ![Sequenzdiagramm](./project-ressources/sequenz-diagramm.png)
-
-### Glossar
-
-|Wort|Beschreibung   |
-|---|---|
-|Balancing|Eigenschafte eines Gegenstandes oder eines Gegners werden angepasst. Z.B. wird die maximale Gesundheit oder der Schaden welcher angerichtet wird, angepasst|
-|Nerf|Ein Nerf bei einem Gegenstand oder eine, Gegner führt dazu, dass dieser schlechter wird. Z.B wird beim gegner das maximale Leben verringert, oder dass ein Gegenstand weniger nützlich wird|
-|Buff|Bei einem Buff passiert das gegenteil von einem Nerf. Der Gegner oder Gegenstand wird besser. Z.B. wird bei einem Gegenstand die Haltbarkeit, Schaden oder Resistenz erhöht.|
