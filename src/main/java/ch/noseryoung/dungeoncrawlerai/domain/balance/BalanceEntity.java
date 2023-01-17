@@ -1,5 +1,6 @@
 package ch.noseryoung.dungeoncrawlerai.domain.balance;
 
+import ch.noseryoung.dungeoncrawlerai.core.generic.ExtendedEntity;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -7,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 @Data
 @Document(collection = "playerData")
-public class BalanceEntity {
+public class BalanceEntity extends ExtendedEntity {
     @Id
     private String id;
 
