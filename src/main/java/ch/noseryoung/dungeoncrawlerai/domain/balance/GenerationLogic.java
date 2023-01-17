@@ -2,8 +2,10 @@ package ch.noseryoung.dungeoncrawlerai.domain.balance;
 
 import ch.noseryoung.dungeoncrawlerai.domain.enemy.EnemyEntityService;
 import ch.noseryoung.dungeoncrawlerai.domain.enemy.Entity;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
+@Slf4j
 public class GenerationLogic {
 
     @Autowired
@@ -85,8 +87,8 @@ public class GenerationLogic {
         Double playerBaseDamage = playerBaseDamage(entity);
         Double leftoverEnemyHealthPer = (entity.getLeftoverEnemyHealth() / enemy.getHealth()) * 100;
         int newEnemyHealth = (int) (enemy.getHealth() - (playerBaseDamage / leftoverEnemyHealthPer));
-        System.out.println("Old enemy Health: " + enemy.getHealth());
-        System.out.println("New enemy Health: " + newEnemyHealth);
+       log.debug("Old enemy Health: " + enemy.getHealth());
+       log.debug("New enemy Health: " + newEnemyHealth);
         return newEnemyHealth;
     }
 
@@ -95,8 +97,8 @@ public class GenerationLogic {
         int currentEnemyDamage = enemy.getDamage();
         Double leftoverEnemyHealthPer = (entity.getLeftoverEnemyHealth() / enemy.getHealth()) * 100;
         int newEnemyDamage = (int) (currentEnemyDamage - (playerBaseDefence / leftoverEnemyHealthPer));
-        System.out.println("Old enemy Damage: " + enemy.getDamage());
-        System.out.println("New enemy Damage: " + newEnemyDamage);
+       log.debug("Old enemy Damage: " + enemy.getDamage());
+       log.debug("New enemy Damage: " + newEnemyDamage);
         return newEnemyDamage;
     }
 
@@ -104,20 +106,20 @@ public class GenerationLogic {
         Double playerBaseDamage = playerBaseDamage(entity);
         if (entity.isEnemyHasDefenseMultiplier()){
             int newResistance = (int) (enemy.getResistance() - (playerBaseDamage / entity.getEnemyDefenseMultiplier()));
-            System.out.println("Old enemy resistance: " + enemy.getResistance());
-            System.out.println("New enemy resistance: " + newResistance);
+           log.debug("Old enemy resistance: " + enemy.getResistance());
+           log.debug("New enemy resistance: " + newResistance);
             return newResistance;
         }
         else if (entity.isEnemyHasBonusDefense()){
             int newResistance =  (int) (enemy.getResistance() - (playerBaseDamage / entity.getEnemyBonusDefense()));
-            System.out.println("Old enemy resistance: " + enemy.getResistance());
-            System.out.println("New enemy resistance: " + newResistance);
+           log.debug("Old enemy resistance: " + enemy.getResistance());
+           log.debug("New enemy resistance: " + newResistance);
             return newResistance;
         }
         else {
             int newResistance = (int) (enemy.getResistance() - (entity.getEnemyResistance() / 10));
-            System.out.println("Old enemy resistance: " + enemy.getResistance());
-            System.out.println("New enemy resistance: " + newResistance);
+           log.debug("Old enemy resistance: " + enemy.getResistance());
+           log.debug("New enemy resistance: " + newResistance);
             return newResistance;
         }
     }
