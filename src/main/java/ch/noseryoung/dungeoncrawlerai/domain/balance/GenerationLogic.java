@@ -103,13 +103,22 @@ public class GenerationLogic {
     public int changeEnemyResistance(BalanceEntity entity, Entity enemy){
         Double playerBaseDamage = playerBaseDamage(entity);
         if (entity.isEnemyHasDefenseMultiplier()){
-            return 2;
+            int newResistance = (int) (enemy.getResistance() - (playerBaseDamage / entity.getEnemyDefenseMultiplier()));
+            System.out.println("Old enemy resistance: " + enemy.getResistance());
+            System.out.println("New enemy resistance: " + newResistance);
+            return newResistance;
         }
         else if (entity.isEnemyHasBonusDefense()){
-            return 1;
+            int newResistance =  (int) (enemy.getResistance() - (playerBaseDamage / entity.getEnemyBonusDefense()));
+            System.out.println("Old enemy resistance: " + enemy.getResistance());
+            System.out.println("New enemy resistance: " + newResistance);
+            return newResistance;
         }
         else {
-            return 0;
+            int newResistance = (int) (enemy.getResistance() - (entity.getEnemyResistance() / 10));
+            System.out.println("Old enemy resistance: " + enemy.getResistance());
+            System.out.println("New enemy resistance: " + newResistance);
+            return newResistance;
         }
     }
 
