@@ -1,4 +1,4 @@
-package ch.noseryoung.dungeoncrawlerai.domain;
+package ch.noseryoung.dungeoncrawlerai.domain.balance;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
