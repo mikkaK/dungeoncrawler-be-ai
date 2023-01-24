@@ -1,8 +1,15 @@
 package ch.noseryoung.dungeoncrawlerai.domain.enemy;
 
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * This is the actual implementation of the EnemyEntity Service.
+ * It handles the logic between a controller and repository.
+ */
+@Service
 public class EnemyEntityServiceImpl implements EnemyEntityService{
 
     private final EnemyEntityRepository entityRepository;

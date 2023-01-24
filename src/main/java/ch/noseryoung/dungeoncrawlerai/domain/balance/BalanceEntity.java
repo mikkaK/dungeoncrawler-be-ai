@@ -6,6 +6,10 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+/**
+ * BalanceEntity is the entity which gets sent from the frontend when a player dies or kills an enemy.
+ * It consists of fields, a constructor and getters & setters.
+ */
 @Data
 @Document(collection = "playerData")
 public class BalanceEntity extends ExtendedEntity {

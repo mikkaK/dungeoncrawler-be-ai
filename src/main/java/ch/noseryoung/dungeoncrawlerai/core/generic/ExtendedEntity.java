@@ -3,6 +3,10 @@ package ch.noseryoung.dungeoncrawlerai.core.generic;
 
 import java.util.Date;
 
+/**
+ * This entity is used to extend every other entity in this program.
+ * As we'd like to see the date when an entity got created this will be a base-value.
+ */
 public abstract class ExtendedEntity {
 
 
