@@ -6,6 +6,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+/**
+ * This is the entity of an Enemy in our database, it's used to update an enemy after balancing logic.
+ */
 @Data
 @NoArgsConstructor
 @Document(collection = "entities")

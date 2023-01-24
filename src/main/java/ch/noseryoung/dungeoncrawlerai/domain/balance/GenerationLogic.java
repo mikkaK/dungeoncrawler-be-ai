@@ -5,6 +5,10 @@ import ch.noseryoung.dungeoncrawlerai.domain.enemy.Entity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 
+/**
+ * Generation Logic is an extra class to handle the logic of balancing an enemy,
+ * as this logic is to big for the @BalanceserviceImpl.
+ */
 @Slf4j
 public class GenerationLogic {
 

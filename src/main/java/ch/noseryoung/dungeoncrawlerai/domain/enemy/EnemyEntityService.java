@@ -5,7 +5,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+/**
+ * This service is used as a middleman between the service-method calls and the actual implementation.
+ */
 public interface EnemyEntityService {
     List<Entity> getAllEntities();
 
