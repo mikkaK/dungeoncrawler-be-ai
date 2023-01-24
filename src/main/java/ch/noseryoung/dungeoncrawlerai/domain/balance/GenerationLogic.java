@@ -13,7 +13,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class GenerationLogic {
 
     @Autowired
-    private EnemyEntityService entityService;
+    private final EnemyEntityService entityService;
+
+    public GenerationLogic(EnemyEntityService entityService) {
+        this.entityService = entityService;
+    }
 
 
     public void calculateEnemyDeath(BalanceEntity entity) {

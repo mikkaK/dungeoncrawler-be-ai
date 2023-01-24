@@ -1,5 +1,6 @@
 package ch.noseryoung.dungeoncrawlerai.domain.balance;
 
+import ch.noseryoung.dungeoncrawlerai.domain.enemy.EnemyEntityService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,9 +14,12 @@ public class BalanceServiceImpl implements BalanceService {
 
     private final BalanceRepository repository;
 
+    private final EnemyEntityService entityService;
+
     @Autowired
-    public BalanceServiceImpl (BalanceRepository repository){
+    public BalanceServiceImpl(BalanceRepository repository, EnemyEntityService entityService){
         this.repository = repository;
+        this.entityService = entityService;
     }
 
     /**
@@ -28,7 +32,7 @@ public class BalanceServiceImpl implements BalanceService {
     public Void contributeData(BalanceEntity entity) throws IllegalArgumentException{
         log.info("trying to save entity");
         try {
-            GenerationLogic logic = new GenerationLogic();
+            GenerationLogic logic = new GenerationLogic(entityService);
             repository.save(entity);
             if (entity.isPlayerIsDead()){
                 logic.calculatePlayerDeath(entity);
