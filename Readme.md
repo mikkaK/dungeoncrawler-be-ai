@@ -7,6 +7,8 @@
     - [ Beschreibung](#-beschreibung)
     - [ Vorbereitung](#-vorbereitung)
     - [ Implementation](#-implementation)
+      - [Architektur](#a-namearchitecture-a-architektur)
+      - [Design Pattern](#a-namedesign-pattern-a-design-pattern)
     - [ Notizen](#-notizen)
     - [ Diagramme](#-diagramme)
       - [Klassendiagramm](#klassendiagramm)
@@ -29,6 +31,18 @@ Um mit unserem Projekt und der Implementation der Logik beginnen zu können, mus
 Es mussten auch einige Formeln erstellt werden, da die Statistiken des Spielers stark von den Gegenständen im Spiel beiinflusst wurden. Unser Ziel war dabei, die Grundwerte des Spielers, des Gegners und deren Bonus Werte in betracht zu ziehen. 
 
 ### <a name="impl"></a> Implementation
+
+#### <a name="architecture"></a> Architektur
+Unser Projekt basiert auf der REST Architektur. Das heisst wir haben einen "REST Client", in unserem fall unser Frontend das schon existierte, mindestens einen REST Controller der Requests entgegennimmt, mindestens einen Service handler und mindestens einen Database handler.
+Im unten stehenden Bild ist dieser Prozess sehr gut beschrieben.
+![picture of REST architecture](./project-ressources/restful-web-services-api-architecture.jpg)
+In unserem Fall wird ein Request an /contribute im Balance Controller geschickt, das mitgeschickte Objekt wird dann im Balance Service verarbeitet und später im Balance Controller gespeichert.
+#### <a name="design-pattern"></a> Design pattern
+
+Unser Projekt folgt, strickt einem Design Pattern namens CRUD.
+CRUD steht für Create, Read, Update, Delete. Diese vier Verben beschreiben alles Prozesse
+die für eine Datenbank Persistierung benötigt werden.
+![CRUD picture](./project-ressources/CRUD.png)
 
 ### <a name="notes"></a> Notizen
 
