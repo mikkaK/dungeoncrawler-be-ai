@@ -1,6 +1,9 @@
 package ch.noseryoung.dungeoncrawlerai.domain.balance;
 
+import org.springframework.stereotype.Service;
 
-public interface BalanceService {
+@Service
+public interface BalanceService{
     Void contributeData(BalanceEntity entity);
 }
+//todo update Class diagram
