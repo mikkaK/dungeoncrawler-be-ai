@@ -9,6 +9,7 @@
     - [ Implementation](#-implementation)
       - [Architektur](#-architektur)
       - [Design Pattern](#-design-pattern)
+      - [Datenbank](#-database)
     - [ Notizen](#-notizen)
     - [ Diagramme](#-diagramme)
       - [Klassendiagramm](#klassendiagramm)
@@ -46,6 +47,13 @@ CRUD steht für Create, Read, Update, Delete. Diese vier Verben beschreiben alle
 die für eine Datenbank Persistierung benötigt werden.
 ![CRUD picture](./project-ressources/CRUD.png)
 [Quelle](https://assets.website-files.com/5ff66329429d880392f6cba2/61c325278ba0dc1f5c550f27_CRUD%20acronym.png)
+
+#### <a name="database"></a> Datenbank
+
+In unserem Projekt haben wir uns für eine MongoDB entschieden, weil sie sehr flexibel und schnell ist.
+Sie wird genutzt, um Spieler daten (BalanceEntity) zu speichern und wichtige Informationen an unser Frontend weiterzugeben.
+Es ist dieselbe Datenbank in der die Gegner gespeichert sind, was uns ermöglicht diese direkt anzupassen, basierend auf unseren Berechnungen und den Daten die wir erhalten.
+
 ### <a name="notes"></a> Notizen
 
 ![Notiz 1](./project-ressources/MicrosoftTeams-image%20(37).png)
