@@ -18,6 +18,7 @@ public class GenerationLogic {
 
     public void calculateEnemyDeath(BalanceEntity entity) {
         Entity enemy = entityService.getEntityByName(entity.getEnemyId()).get();
+        log.debug("Old enemy Stats: " + enemy);
         if (entity.getLeftoverPlayerHealth() > 300) { //health bigger than 50%
             playerHealthAbove50(entity, enemy);
         } else if (entity.getLeftoverPlayerHealth() > 150 && entity.getLeftoverPlayerHealth() < 300) {
@@ -53,7 +54,7 @@ public class GenerationLogic {
         enemy.setDamage(newEnemyDamage);
         enemy.setResistance(newEnemyResistance);
 
-        log.debug("Old new Stats: " + enemy);
+        log.debug("New enemy Stats: " + enemy);
         /*
         entityService.updateEntity(enemy);
 
@@ -69,7 +70,7 @@ public class GenerationLogic {
         enemy.setDamage(newEnemyDamage);
         enemy.setResistance(newEnemyResistance);
 
-        log.debug("Old new Stats: " + enemy);
+        log.debug("New enemy Stats: " + enemy);
         /*
         entityService.updateEntity(enemy);
 
@@ -84,7 +85,7 @@ public class GenerationLogic {
         enemy.setResistance(newEnemyResistance);
 
 
-        log.debug("Old new Stats: " + enemy);
+        log.debug("New enemy Stats: " + enemy);
         /*
         entityService.updateEntity(enemy);
 
@@ -98,7 +99,7 @@ public class GenerationLogic {
         enemy.setHealth(newEnemyHealth);
         enemy.setResistance(newEnemyResistance);
 
-        log.debug("Old new Stats: " + enemy);
+        log.debug("New enemy Stats: " + enemy);
         /*
         entityService.updateEntity(enemy);
 
@@ -112,7 +113,7 @@ public class GenerationLogic {
         enemy.setDamage(newEnemyDamage);
         enemy.setResistance(newEnemyResistance);
 
-        log.debug("Old new Stats: " + enemy);
+        log.debug("New enemy Stats: " + enemy);
         /*
         entityService.updateEntity(enemy);
 
@@ -126,7 +127,7 @@ public class GenerationLogic {
         enemy.setDamage(newEnemyDamage);
         enemy.setResistance(newEnemyResistance);
 
-        log.debug("Old new Stats: " + enemy);
+        log.debug("New enemy Stats: " + enemy);
         /*
         entityService.updateEntity(enemy);
 
@@ -138,7 +139,7 @@ public class GenerationLogic {
 
         enemy.setDamage(newEnemyDamage);
 
-        log.debug("Old new Stats: " + enemy);
+        log.debug("New enemy Stats: " + enemy);
         /*
         entityService.updateEntity(enemy);
 
@@ -150,7 +151,7 @@ public class GenerationLogic {
 
         enemy.setDamage(newEnemyDamage);
 
-        log.debug("Old new Stats: " + enemy);
+        log.debug("New enemy Stats: " + enemy);
         /*
         entityService.updateEntity(enemy);
 
