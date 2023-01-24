@@ -7,8 +7,8 @@
     - [ Beschreibung](#-beschreibung)
     - [ Vorbereitung](#-vorbereitung)
     - [ Implementation](#-implementation)
-      - [Architektur](#a-namearchitecture-a-architektur)
-      - [Design Pattern](#a-namedesign-pattern-a-design-pattern)
+      - [Architektur](#-architektur)
+      - [Design Pattern](#-design-pattern)
     - [ Notizen](#-notizen)
     - [ Diagramme](#-diagramme)
       - [Klassendiagramm](#klassendiagramm)
@@ -36,14 +36,16 @@ Es mussten auch einige Formeln erstellt werden, da die Statistiken des Spielers 
 Unser Projekt basiert auf der REST Architektur. Das heisst wir haben einen "REST Client", in unserem fall unser Frontend das schon existierte, mindestens einen REST Controller der Requests entgegennimmt, mindestens einen Service handler und mindestens einen Database handler.
 Im unten stehenden Bild ist dieser Prozess sehr gut beschrieben.
 ![picture of REST architecture](./project-ressources/restful-web-services-api-architecture.jpg)
+[Quelle](https://assets.website-files.com/5ff66329429d880392f6cba2/61c325278ba0dc1f5c550f27_CRUD%20acronym.png)  
 In unserem Fall wird ein Request an /contribute im Balance Controller geschickt, das mitgeschickte Objekt wird dann im Balance Service verarbeitet und später im Balance Controller gespeichert.
+
 #### <a name="design-pattern"></a> Design pattern
 
 Unser Projekt folgt, strickt einem Design Pattern namens CRUD.
 CRUD steht für Create, Read, Update, Delete. Diese vier Verben beschreiben alles Prozesse
 die für eine Datenbank Persistierung benötigt werden.
 ![CRUD picture](./project-ressources/CRUD.png)
-
+[Quelle](https://assets.website-files.com/5ff66329429d880392f6cba2/61c325278ba0dc1f5c550f27_CRUD%20acronym.png)
 ### <a name="notes"></a> Notizen
 
 ![Notiz 1](./project-ressources/MicrosoftTeams-image%20(37).png)
