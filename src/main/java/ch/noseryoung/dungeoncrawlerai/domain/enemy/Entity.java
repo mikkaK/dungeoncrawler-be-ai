@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @Document(collection = "entities")
 public class Entity {
     @Id
-    private Integer id;
+    private String id;
 
     @Field
     private String name;
@@ -37,7 +37,7 @@ public class Entity {
     @Field
     private boolean alive;
 
-    public Entity(Integer id, String name, Integer health, Integer damage, Integer resistance, Integer maxHealth, Integer flatPen, Integer percentagePen, boolean alive) {
+    public Entity(String id, String name, Integer health, Integer damage, Integer resistance, Integer maxHealth, Integer flatPen, Integer percentagePen, boolean alive) {
         this.id = id;
         this.name = name;
         this.health = health;
