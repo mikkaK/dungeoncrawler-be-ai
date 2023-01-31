@@ -49,9 +49,9 @@ public class GenerationLogic {
     }
 
     public void playerHealthAbove50(BalanceEntity entity, Entity enemy) {
-        int newEnemyHealth = changeEnemyHealthUp(entity, enemy);
-        int newEnemyDamage = changeEnemyDamageUp(entity, enemy);
-        int newEnemyResistance = changeEnemyResistanceUp(entity, enemy);
+        Double newEnemyHealth = changeEnemyHealthUp(entity, enemy);
+        Double newEnemyDamage = changeEnemyDamageUp(entity, enemy);
+        Double newEnemyResistance = changeEnemyResistanceUp(entity, enemy);
 
 
         enemy.setHealth(newEnemyHealth);
@@ -66,9 +66,9 @@ public class GenerationLogic {
     }
 
     public void healthAbove50(BalanceEntity entity, Entity enemy) {
-        int newEnemyHealth = changeEnemyHealth(entity, enemy);
-        int newEnemyDamage = changeEnemyDamage(entity, enemy);
-        int newEnemyResistance = changeEnemyResistance(entity, enemy);
+        Double newEnemyHealth = changeEnemyHealth(entity, enemy);
+        Double newEnemyDamage = changeEnemyDamage(entity, enemy);
+        Double newEnemyResistance = changeEnemyResistance(entity, enemy);
 
         enemy.setHealth(newEnemyHealth);
         enemy.setDamage(newEnemyDamage);
@@ -82,8 +82,8 @@ public class GenerationLogic {
     }
 
     public void playerHealthBetween25and50(BalanceEntity entity, Entity enemy) {
-        int newEnemyHealth = changeEnemyHealthUp(entity, enemy);
-        int newEnemyResistance = changeEnemyResistanceUp(entity, enemy);
+        Double newEnemyHealth = changeEnemyHealthUp(entity, enemy);
+        Double newEnemyResistance = changeEnemyResistanceUp(entity, enemy);
 
         enemy.setHealth(newEnemyHealth);
         enemy.setResistance(newEnemyResistance);
@@ -97,8 +97,8 @@ public class GenerationLogic {
     }
 
     public void healthBetween25and50(BalanceEntity entity, Entity enemy) {
-        int newEnemyHealth = changeEnemyHealth(entity, enemy);
-        int newEnemyResistance = changeEnemyResistance(entity, enemy);
+        Double newEnemyHealth = changeEnemyHealth(entity, enemy);
+        Double newEnemyResistance = changeEnemyResistance(entity, enemy);
 
         enemy.setHealth(newEnemyHealth);
         enemy.setResistance(newEnemyResistance);
@@ -111,8 +111,8 @@ public class GenerationLogic {
     }
 
     public void playerHealthBetween10and25(BalanceEntity entity, Entity enemy) {
-        int newEnemyDamage = changeEnemyDamageUp(entity, enemy);
-        int newEnemyResistance = changeEnemyResistanceUp(entity, enemy);
+        Double newEnemyDamage = changeEnemyDamageUp(entity, enemy);
+        Double newEnemyResistance = changeEnemyResistanceUp(entity, enemy);
 
         enemy.setDamage(newEnemyDamage);
         enemy.setResistance(newEnemyResistance);
@@ -125,8 +125,8 @@ public class GenerationLogic {
     }
 
     public void healthBetween10and25(BalanceEntity entity, Entity enemy) {
-        int newEnemyDamage = changeEnemyDamage(entity, enemy);
-        int newEnemyResistance = changeEnemyResistance(entity, enemy);
+        Double newEnemyDamage = changeEnemyDamage(entity, enemy);
+        Double newEnemyResistance = changeEnemyResistance(entity, enemy);
 
         enemy.setDamage(newEnemyDamage);
         enemy.setResistance(newEnemyResistance);
@@ -139,7 +139,7 @@ public class GenerationLogic {
     }
 
     public void playerHealthBetween5and10(BalanceEntity entity, Entity enemy) {
-        int newEnemyDamage = changeEnemyDamageUp(entity, enemy);
+        Double newEnemyDamage = changeEnemyDamageUp(entity, enemy);
 
         enemy.setDamage(newEnemyDamage);
 
@@ -151,7 +151,7 @@ public class GenerationLogic {
     }
 
     public void healthBetween5and10(BalanceEntity entity, Entity enemy) {
-        int newEnemyDamage = changeEnemyDamage(entity, enemy);
+        Double newEnemyDamage = changeEnemyDamage(entity, enemy);
 
         enemy.setDamage(newEnemyDamage);
 
@@ -162,78 +162,96 @@ public class GenerationLogic {
          */
     }
 
-    public int changeEnemyHealthUp(BalanceEntity entity, Entity enemy) {
+    public Double changeEnemyHealthUp(BalanceEntity entity, Entity enemy) {
         Double playerBaseDamage = playerBaseDamage(entity);
-        Double leftoverEnemyHealthPer = (entity.getLeftoverEnemyHealth() / enemy.getHealth()) * 100;
-        int newEnemyHealth = (int) (enemy.getHealth() + (playerBaseDamage / leftoverEnemyHealthPer));
+        Double leftoverPlayerHealthPer = (entity.getLeftoverPlayerHealth() / 600) * 100;
+        Double newEnemyHealth = Double.valueOf(Math.round(10 * (enemy.getHealth() + (playerBaseDamage / leftoverPlayerHealthPer)))/10);
         log.info("Old enemy Health: " + enemy.getHealth());
         log.info("New enemy Health: " + newEnemyHealth);
         return newEnemyHealth;
     }
 
-    public int changeEnemyHealth(BalanceEntity entity, Entity enemy) {
+    public Double changeEnemyHealth(BalanceEntity entity, Entity enemy) {
         Double playerBaseDamage = playerBaseDamage(entity);
         Double leftoverEnemyHealthPer = (entity.getLeftoverEnemyHealth() / enemy.getHealth()) * 100;
-        int newEnemyHealth = (int) (enemy.getHealth() - (playerBaseDamage / leftoverEnemyHealthPer));
+        Double newEnemyHealth =  Double.valueOf(Math.round(10 * (enemy.getHealth() - (playerBaseDamage / leftoverEnemyHealthPer)))/10);
         log.info("Old enemy Health: " + enemy.getHealth());
         log.info("New enemy Health: " + newEnemyHealth);
         return newEnemyHealth;
     }
 
-    public int changeEnemyDamageUp(BalanceEntity entity, Entity enemy) {
+    public Double changeEnemyDamageUp(BalanceEntity entity, Entity enemy) {
         Double playerBaseDefence = playerBaseResistance(entity);
-        int currentEnemyDamage = enemy.getDamage();
-        Double leftoverEnemyHealthPer = (entity.getLeftoverEnemyHealth() / enemy.getHealth()) * 100;
-        int newEnemyDamage = (int) (currentEnemyDamage + (playerBaseDefence / leftoverEnemyHealthPer));
+        Double currentEnemyDamage = enemy.getDamage();
+        Double leftoverPlayerHealthPer = (entity.getLeftoverPlayerHealth() / 600) * 100;
+        Double newEnemyDamage = Double.valueOf(Math.round(10 * (currentEnemyDamage + (playerBaseDefence / leftoverPlayerHealthPer)))/10);
         log.info("Old enemy Damage: " + enemy.getDamage());
         log.info("New enemy Damage: " + newEnemyDamage);
         return newEnemyDamage;
     }
 
-    public int changeEnemyDamage(BalanceEntity entity, Entity enemy) {
+    public Double changeEnemyDamage(BalanceEntity entity, Entity enemy) {
         Double playerBaseDefence = playerBaseResistance(entity);
-        int currentEnemyDamage = enemy.getDamage();
+        Double currentEnemyDamage = enemy.getDamage();
         Double leftoverEnemyHealthPer = (entity.getLeftoverEnemyHealth() / enemy.getHealth()) * 100;
-        int newEnemyDamage = (int) (currentEnemyDamage - (playerBaseDefence / leftoverEnemyHealthPer));
+        Double newEnemyDamage = Double.valueOf(Math.round(10 * (currentEnemyDamage - (playerBaseDefence / leftoverEnemyHealthPer)))/10);
         log.info("Old enemy Damage: " + enemy.getDamage());
         log.info("New enemy Damage: " + newEnemyDamage);
         return newEnemyDamage;
     }
 
-    public int changeEnemyResistanceUp(BalanceEntity entity, Entity enemy) {
+    public Double changeEnemyResistanceUp(BalanceEntity entity, Entity enemy) {
         Double playerBaseDamage = playerBaseDamage(entity);
         if (entity.isEnemyHasDefenseMultiplier()) {
-            int newResistance = (int) (enemy.getResistance() + (playerBaseDamage / entity.getEnemyDefenseMultiplier()));
+            Double newResistance = Double.valueOf(Math.round(10 * (enemy.getResistance() + (playerBaseDamage / entity.getEnemyDefenseMultiplier())))/10);
+            if (newResistance < 0){
+                newResistance = 0.0;
+            }
             log.info("Old enemy resistance: " + enemy.getResistance());
             log.info("New enemy resistance: " + newResistance);
             return newResistance;
         } else if (entity.isEnemyHasBonusDefense()) {
-            int newResistance = (int) (enemy.getResistance() + (playerBaseDamage / entity.getEnemyBonusDefense()));
+            Double newResistance = Double.valueOf(Math.round(10 * (enemy.getResistance() + (playerBaseDamage / entity.getEnemyBonusDefense())))/10);
+            if (newResistance < 0){
+                newResistance = 0.0;
+            }
             log.info("Old enemy resistance: " + enemy.getResistance());
             log.info("New enemy resistance: " + newResistance);
             return newResistance;
         } else {
-            int newResistance = (int) (enemy.getResistance() + (entity.getEnemyResistance() / 10));
+            Double newResistance = Double.valueOf(Math.round(10 * (enemy.getResistance() + (entity.getEnemyResistance() / 10)))/10);
+            if (newResistance < 0){
+                newResistance = 0.0;
+            }
             log.info("Old enemy resistance: " + enemy.getResistance());
             log.info("New enemy resistance: " + newResistance);
             return newResistance;
         }
     }
 
-    public int changeEnemyResistance(BalanceEntity entity, Entity enemy) {
+    public Double changeEnemyResistance(BalanceEntity entity, Entity enemy) {
         Double playerBaseDamage = playerBaseDamage(entity);
         if (entity.isEnemyHasDefenseMultiplier()) {
-            int newResistance = (int) (enemy.getResistance() - (playerBaseDamage / entity.getEnemyDefenseMultiplier()));
+            Double newResistance = Double.valueOf(Math.round(10 * (enemy.getResistance() - (playerBaseDamage / entity.getEnemyDefenseMultiplier())))/10);
+            if (newResistance < 0){
+                newResistance = 0.0;
+            }
             log.info("Old enemy resistance: " + enemy.getResistance());
             log.info("New enemy resistance: " + newResistance);
             return newResistance;
         } else if (entity.isEnemyHasBonusDefense()) {
-            int newResistance = (int) (enemy.getResistance() - (playerBaseDamage / entity.getEnemyBonusDefense()));
+            Double newResistance = Double.valueOf(Math.round(10 * (enemy.getResistance() - (playerBaseDamage / entity.getEnemyBonusDefense())))/10);
+            if (newResistance < 0){
+                newResistance = 0.0;
+            }
             log.info("Old enemy resistance: " + enemy.getResistance());
             log.info("New enemy resistance: " + newResistance);
             return newResistance;
         } else {
-            int newResistance = (int) (enemy.getResistance() - (entity.getEnemyResistance() / 10));
+            Double newResistance = Double.valueOf(Math.round(10 * (enemy.getResistance() - (entity.getEnemyResistance() / 10))) / 10);
+            if (newResistance < 0){
+                newResistance = 0.0;
+            }
             log.info("Old enemy resistance: " + enemy.getResistance());
             log.info("New enemy resistance: " + newResistance);
             return newResistance;

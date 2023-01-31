@@ -20,16 +20,16 @@ public class Entity {
     private String name;
 
     @Field
-    private Integer health;
+    private Double health;
 
     @Field
-    private Integer damage;
+    private Double damage;
 
     @Field
-    private Integer resistance;
+    private Double resistance;
 
     @Field
-    private Integer maxHealth;
+    private Double maxHealth;
 
     @Field
     private Integer flatPen;
@@ -40,7 +40,7 @@ public class Entity {
     @Field
     private boolean alive;
 
-    public Entity(String id, String name, Integer health, Integer damage, Integer resistance, Integer maxHealth, Integer flatPen, Integer percentagePen, boolean alive) {
+    public Entity(String id, String name, Double health, Double damage, Double resistance, Double maxHealth, Integer flatPen, Integer percentagePen, boolean alive) {
         this.id = id;
         this.name = name;
         this.health = health;
